@@ -59,6 +59,13 @@ jobs:
       - name: Generate Android project
         run: npx expo prebuild --platform android --no-install
 
+      - name: Target modern 64-bit phones only (smaller APK, faster build)
+        run: |
+          sed -i '/^reactNativeArchitectures=/d' android/gradle.properties
+          echo "reactNativeArchitectures=arm64-v8a" >> android/gradle.properties
+
+      - uses: gradle/actions/setup-gradle@v5
+
       - name: Build APK
         working-directory: android
         run: ./gradlew assembleRelease --no-daemon
