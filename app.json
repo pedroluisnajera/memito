@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "Memito",
+    "slug": "memito",
+    "version": "0.1.0",
+    "scheme": "memito",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "android": {
+      "package": "com.pedronajera.memito"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-notifications",
+      [
+        "expo-location",
+        { "locationWhenInUsePermission": "Memito uses your location to remember where you parked." }
+      ],
+      [
+        "expo-image-picker",
+        { "cameraPermission": "Memito uses the camera to take a photo of your parking spot." }
+      ]
+    ]
+  }
+}
